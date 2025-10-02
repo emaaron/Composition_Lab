@@ -151,7 +151,6 @@ void BankAccount::printHistory()
 				<< "\nAmount: $" << transactionHistory.at(i).amount
 				<< "\nDate: " << transactionHistory.at(i).timestamp
 				<< std::endl;
-			std::cout << std::endl;
 		}
 	}
 }
@@ -167,18 +166,17 @@ void BankAccount::Deposit(double amount)
 		std::cout << "Invalid amount of money to deposit." << std::endl;
 	}
 	else {
-		*this += amount;
-		Transaction deposit;
-		deposit.type = "Deposit";
-		deposit.amount = amount;
 
-		// Time
+		*this += amount;
+
+		Transaction history;
+		history.type = "Deposit";
+		history.amount = amount;
+
 		std::time_t timestamp;
 		std::time(&timestamp);
-		deposit.timestamp = ctime(&timestamp);
-
-		// Push transaction information into vector
-		transactionHistory.push_back(deposit);
+		history.timestamp = ctime(&timestamp);
+		transactionHistory.push_back(history);
 
 		std::cout << "New account balance: $" << balance << std::endl;
 	}
@@ -199,19 +197,17 @@ void BankAccount::Withdraw(double amount)
 		std::cout << "Not enough funds." << std::endl;
 	}
 	else {
+
 		*this -= amount;
 
-		Transaction withdraw;
-		withdraw.type = "Withdraw";
-		withdraw.amount = amount;
+		Transaction history;
+		history.type = "Deposit";
+		history.amount = amount;
 
-		// Time
 		std::time_t timestamp;
 		std::time(&timestamp);
-		withdraw.timestamp = ctime(&timestamp);
-
-		// Push transaction information into vector
-		transactionHistory.push_back(withdraw);
+		history.timestamp = ctime(&timestamp);
+		transactionHistory.push_back(history);
 
 		std::cout << "New account balance: $" << balance << std::endl;
 	}
