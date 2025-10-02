@@ -1,8 +1,8 @@
 /*
 *	Name: Aaron Vasquez
-*	Date: September 27, 2025
-*	Program Purpose: Banking system program meant for using inheritance.
-*	Assignment: Lab Activities: Inheritance
+*	Date: October 1, 2025
+*	Program Purpose: Improved banking system using inheritance and composition along with adding transaction history.
+*	Assignment: Lab Activities: Inheritance & Composition
 */
 
 // Imported header files
